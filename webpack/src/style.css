@@ -1,7 +1,53 @@
-.main_title {
-    color: red;
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;      
   }
 
-body {
-  background-color: bisque;
+.main_title {
+  text-align: center;
+  color: red;
+  font-family: Impact, sans-serif;
+  font-size: 5vw;
+  font-weight: 300;
+}
+
+#list_container {
+  width: 30vw;
+  height: 30vw;
+  background-color: rgb(225, 232, 233);
+  margin-top: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 20px black solid;
+  border-bottom: 20px black solid;
+}
+
+#tasks {
+  width: 20vw;
+  height: 25vw;
+  list-style: none;
+  border: 0.5px grey solid; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  background-color: whitesmoke;
+  padding-left: 0;
+}
+
+li {
+  width: 19.5vw;
+  height: 2vw;
+  border-bottom: 0.3px rgb(226, 222, 222) solid;
+  padding-top: 0.5vw;
+  padding-left: 0.5vw;
+}
+
+#add_title {
+    width: 19vw;
+    height: 2vw;
+    border: 0;
+    background-color: whitesmoke;
+    font-style: italic;
+    margin-top: -1vw;
 }
