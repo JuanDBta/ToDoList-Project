@@ -1,8 +1,8 @@
 body {
   display: flex;
   flex-direction: row;
-  justify-content: center;      
-  }
+  justify-content: center;
+}
 
 .main_title {
   text-align: center;
@@ -29,7 +29,7 @@ body {
   width: 20vw;
   height: 25vw;
   list-style: none;
-  border: 0.5px grey solid; 
+  border: 0.5px grey solid;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   background-color: whitesmoke;
   padding-left: 0;
@@ -44,10 +44,10 @@ li {
 }
 
 #add_title {
-    width: 19vw;
-    height: 2vw;
-    border: 0;
-    background-color: whitesmoke;
-    font-style: italic;
-    margin-top: -1vw;
+  width: 19vw;
+  height: 2vw;
+  border: 0;
+  background-color: whitesmoke;
+  font-style: italic;
+  margin-top: -1vw;
 }
