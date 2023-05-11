@@ -37,9 +37,9 @@
 **[To Do List]** is a simple HTML list of To Do tasks with checkboxes built using webpack and served by a webpack dev server.
 
 ## 🛠 Built With <a name="built-with"></a>
-1- HTML
-2- CSS
-3- JS
+1- HTML<br>
+2- CSS<br>
+3- JS<br>
 4- WEBPACK
 
 ### Tech Stack <a name="tech-stack"></a>
