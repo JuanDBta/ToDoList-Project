@@ -2,8 +2,9 @@
 import _ from 'lodash';
 import './style.css';
 import { Tasks } from './modules/task_class.js';
-import { addTaskSubmit } from './modules/add_remove_task.js';
+import { addTaskSubmit, removeTaskClick } from './modules/add_remove_task.js';
 
 const tasks = new Tasks();
 tasks.displayTasks();
 addTaskSubmit();
+removeTaskClick();

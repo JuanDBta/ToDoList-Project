@@ -2,26 +2,25 @@ import { Tasks } from './task_class.js';
 
 const tasks = new Tasks();
 
-export default function addTaskSubmit() {
+function addTaskSubmit() {
   const addTaskInput = document.getElementById('add_new_task');
   addTaskInput.addEventListener('submit', (event) => {
     event.preventDefault();
     const description = document.getElementById('description').value;
     tasks.addTask(description);
-    tasks.displayBooks();
+    tasks.displayTasks();
     addTaskInput.reset();
   });
 }
-/*
 const removeTaskClick = () => {
-  const bookList = document.getElementById('book-list');
-  bookList.addEventListener('click', (event) => {
-    if (event.target.classList.contains('remove-title')) {
+  const taskList = document.getElementById('tasks_list');
+  taskList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('button_remove')) {
       const { id } = event.target.dataset;
-      books.removeBook(id);
-      books.displayBooks();
+      tasks.removeTask(id);
+      tasks.displayTasks();
     }
-  })
-}; */
+  });
+};
 
-export { addTaskSubmit };
+export { addTaskSubmit, removeTaskClick };

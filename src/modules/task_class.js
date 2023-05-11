@@ -4,19 +4,18 @@ export default class Tasks {
   }
 
   addTask(description) {
-    const task = { description };
+    const task = { description, completed: false, id: this.tasks.length };
     this.tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  /*
-  removeBook(id) {
+  removeTask(id) {
     const index = this.tasks.findIndex((task) => task.id === Number(id));
     if (index !== -1) {
       this.tasks.splice(index, 1);
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
-  } */
+  }
 
   displayTasks() {
     const tasksList = document.getElementById('tasks_list');
@@ -24,15 +23,15 @@ export default class Tasks {
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<button class="button_remove">Remove</button>`;
+      taskItem.innerHTML = `${task.description}<button class="button_remove" data-id="${task.id}">Remove</button>`;
       tasksList.appendChild(taskItem);
 
-      /* const removeButton = taskItem.querySelector('.remove-title');
+      const removeButton = taskItem.querySelector('.button_remove');
       removeButton.addEventListener('click', (event) => {
         const { id } = event.target.dataset;
-        this.removeBook(id);
-        this.displayBooks();
-      }); */
+        this.removeTask(id);
+        this.displayTasks();
+      });
     });
   }
 }
