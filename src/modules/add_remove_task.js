@@ -2,7 +2,7 @@ import { Tasks } from './task_class.js';
 
 const tasks = new Tasks();
 
-const addTaskSubmit = () => {
+export default function addTaskSubmit() {
   const addTaskInput = document.getElementById('add_new_task');
   addTaskInput.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -11,7 +11,7 @@ const addTaskSubmit = () => {
     tasks.displayBooks();
     addTaskInput.reset();
   });
-};
+}
 /*
 const removeTaskClick = () => {
   const bookList = document.getElementById('book-list');
@@ -22,6 +22,6 @@ const removeTaskClick = () => {
       books.displayBooks();
     }
   })
-};*/
+}; */
 
 export { addTaskSubmit };

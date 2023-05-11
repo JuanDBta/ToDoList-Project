@@ -16,7 +16,7 @@ export default class Tasks {
       this.tasks.splice(index, 1);
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
-  }*/
+  } */
 
   displayTasks() {
     const tasksList = document.getElementById('tasks_list');
@@ -24,15 +24,15 @@ export default class Tasks {
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<button class="remove-title">Remove</button>`;
+      taskItem.innerHTML = `${task.description}<button class="button_remove">Remove</button>`;
       tasksList.appendChild(taskItem);
 
-      /*const removeButton = taskItem.querySelector('.remove-title');
+      /* const removeButton = taskItem.querySelector('.remove-title');
       removeButton.addEventListener('click', (event) => {
         const { id } = event.target.dataset;
         this.removeBook(id);
         this.displayBooks();
-      });*/
+      }); */
     });
   }
 }
