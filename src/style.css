@@ -20,7 +20,7 @@ body {
   border-bottom: 20px black solid;
 }
 
-#tasks {
+#tasks_list {
   width: 20vw;
   height: 25vw;
   list-style: none;
@@ -55,7 +55,7 @@ li {
   font-weight: 400;
 }
 
-#add_task {
+#description {
   width: 19vw;
   height: 2vw;
   border: 0;
