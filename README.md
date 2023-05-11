@@ -2,7 +2,7 @@
 
 <div align="center">
  
-  <img src="images\cardenasbackground.jpg" alt="logo" width="160"  height="auto">
+  <img src="src\images\cardenasbackground.jpg" alt="logo" width="160"  height="auto">
   <br/>
 
   <h3><b>Awsome Books Project</b></h3>
