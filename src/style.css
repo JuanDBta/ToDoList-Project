@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url("./images/galaxy.jpg");
+  background-image: url("./galaxy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -73,8 +73,7 @@ body {
 }
 
 .button_remove {
-  font-size: 0.9vw;
-  padding: 0;
+  width: 1vw;
 }
 
 #add_new_task {

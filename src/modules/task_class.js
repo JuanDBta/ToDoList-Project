@@ -23,7 +23,7 @@ export default class Tasks {
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<button class="button_remove" data-id="${task.id}">Remove</button>`;
+      taskItem.innerHTML = `${task.description}<button class="button_remove" data-id="${task.id}" alt="">Remove</button>`;
       tasksList.appendChild(taskItem);
 
       const removeButton = taskItem.querySelector('.button_remove');
