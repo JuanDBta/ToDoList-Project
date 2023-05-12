@@ -3,15 +3,16 @@ import { Tasks } from './task_class.js';
 const tasks = new Tasks();
 
 function addTaskSubmit() {
-  const addTaskInput = document.getElementById('add_new_task');
-  addTaskInput.addEventListener('submit', (event) => {
+  const enterTask = document.querySelector('.enter_task');
+  enterTask.addEventListener('click', (event) => {
     event.preventDefault();
     const description = document.getElementById('description').value;
     tasks.addTask(description);
     tasks.displayTasks();
-    addTaskInput.reset();
+    document.getElementById('add_new_task').reset();
   });
 }
+
 const removeTaskClick = () => {
   const taskList = document.getElementById('tasks_list');
   taskList.addEventListener('click', (event) => {

@@ -45,7 +45,7 @@ body {
   width: 34.5vw;
   height: 2vw;
   border-bottom: 0.3px rgb(207, 205, 205) solid;
-  padding-top: 0.5vw;
+  padding-top: 0;
   padding-left: 0.5vw;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 800;
@@ -53,8 +53,12 @@ body {
   color: rgb(46, 46, 46);
 }
 
+#sync_button {
+  width: 1.5vw;
+  margin-left: 20.5vw;
+}
+
 .task {
-  position: relative;
   width: 34.5vw;
   height: 2vw;
   border-bottom: 0.3px rgb(207, 205, 205) solid;
@@ -66,14 +70,17 @@ body {
   padding-left: 0.5vw;
 }
 
-.task 
-.button_remove {
-  position: absolute;
-  right: 0.5vw;
+.menu_button {
+  width: 1.3vw;
+  position: relative;
+  left: 29vw;
 }
 
 .button_remove {
-  width: 1vw;
+  display: none;
+  position: relative;
+  width: 1.3vw;
+  left: 28.5vw;
 }
 
 #add_new_task {
@@ -97,7 +104,15 @@ body {
 }
 
 .button_add {
-  font-size: 0.9vw;
+  position: relative;
   padding: 0;
-  margin-right: 0.5vw;
+  right: 0.5vw;
+  width: 1.5vw;
+  top: 0.3vw;
+}
+
+.sync_img {
+  width: 1.5vw;
+  position: relative;
+  top: 0.2vw;
 }

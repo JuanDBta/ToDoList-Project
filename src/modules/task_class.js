@@ -1,3 +1,6 @@
+import trash from '../assets/trash-outline.svg';
+import menu from '../assets/ellipsis-vertical-outline.svg';
+
 export default class Tasks {
   constructor() {
     this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -23,7 +26,7 @@ export default class Tasks {
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<button class="button_remove" data-id="${task.id}" alt="">Remove</button>`;
+      taskItem.innerHTML = `${task.description}<a href="#"><img class="button_remove" data-id="${task.id}" src="${trash}" alt=""><img class="menu_button" src="${menu}" alt=""></a>`;
       tasksList.appendChild(taskItem);
 
       const removeButton = taskItem.querySelector('.button_remove');
