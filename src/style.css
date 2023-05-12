@@ -116,3 +116,22 @@ body {
   position: relative;
   top: 0.2vw;
 }
+
+#clear_button {
+  position: relative;
+  top: 19.4vw;
+  height: 4vw;
+  width: 35vw;
+  border-top: 0.3px rgb(207, 205, 205) solid;
+  background-color: rgb(225, 232, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#clear_all {
+  display: block;
+  text-decoration: none;
+  color: rgb(167, 166, 166);
+  text-align: center;
+}
