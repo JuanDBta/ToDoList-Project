@@ -55,10 +55,11 @@ body {
 
 #sync_button {
   width: 1.5vw;
-  margin-left: 20.5vw;
+  margin-left: 20.8vw;
 }
 
 .task {
+  position: relative;
   width: 34.5vw;
   height: 2vw;
   border-bottom: 0.3px rgb(207, 205, 205) solid;
@@ -70,17 +71,22 @@ body {
   padding-left: 0.5vw;
 }
 
+.task 
 .menu_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.2vw;
   width: 1.3vw;
-  position: relative;
-  left: 29vw;
 }
 
+.task 
 .button_remove {
-  display: none;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1vw;
   width: 1.3vw;
-  left: 28.5vw;
 }
 
 #add_new_task {
@@ -134,4 +140,6 @@ body {
   text-decoration: none;
   color: rgb(167, 166, 166);
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
 }
