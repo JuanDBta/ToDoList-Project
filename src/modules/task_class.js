@@ -45,6 +45,32 @@ export default class Tasks {
         this.removeTask(id);
         this.displayTasks();
       });
+
+      taskItem.addEventListener('click', (event) => {
+        const { id } = task;
+        const taskText = event.target.textContent;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = taskText.trim();
+        input.classList.add('edit_input'); // Agregamos la clase "edit_input"
+        taskItem.innerHTML = '';
+        taskItem.appendChild(input);
+        input.focus();
+
+        input.addEventListener('blur', () => {
+          const newDescription = input.value;
+          this.editTask(id, newDescription);
+          this.displayTasks();
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            const newDescription = input.value;
+            this.editTask(id, newDescription);
+            this.displayTasks();
+          }
+        });
+      });
     });
   }
 }

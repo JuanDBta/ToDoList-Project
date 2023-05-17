@@ -98,7 +98,8 @@ body {
 #description {
   width: 30vw;
   height: 2.2vw;
-  border: 0;
+  border: none;
+  outline: none;
   font-family: 'Courier New', Courier, monospace;
   background-color: whitesmoke;
   font-style: italic;
@@ -141,15 +142,16 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 400;
 }
-
-#edit_input {
+.edit_input {
   width: 30vw;
-  height: 2.2vw;
-  border: 0;
+  height: 2.3vw;
+  border: none;
+  outline: none;
   font-family: 'Courier New', Courier, monospace;
   background-color: whitesmoke;
   font-style: italic;
   font-size: 1vw;
   color: rgb(167, 166, 166);
   padding-left: 0.5vw;
+  margin-top: -1vw;
 }
