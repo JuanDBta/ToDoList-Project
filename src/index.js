@@ -1,38 +1,26 @@
 // eslint-disable-next-line no-unused-vars
 import _ from 'lodash';
 import './style.css';
+import { Tasks } from './modules/task_class.js';
+import { addTaskSubmit, removeTaskClick } from './modules/add_remove_task.js';
+import sync from './assets/sync-outline.svg';
+import enter from './assets/enter.svg';
 
-const tasks = [];
+const syncLocation = document.querySelector('#sync_button');
+const syncImg = document.createElement('img');
+syncImg.classList.add('sync_img');
+syncImg.src = sync;
+syncImg.alt = '';
+syncLocation.appendChild(syncImg);
 
-const newTask1 = {
-  description: 'New task 1',
-  completed: false,
-  index: 0,
-};
+const enterLocation = document.querySelector('.button_add');
+const enterImg = document.createElement('img');
+enterImg.classList.add('enter_task');
+enterImg.src = enter;
+enterImg.alt = '';
+enterLocation.appendChild(enterImg);
 
-const newTask2 = {
-  description: 'New task 2',
-  completed: false,
-  index: 1,
-};
-
-const newTask3 = {
-  description: 'New task 3',
-  completed: false,
-  index: 2,
-};
-
-tasks.push(newTask1);
-tasks.push(newTask2);
-tasks.push(newTask3);
-
-const addNewTask = () => {
-  const tasksList = document.getElementById('tasks');
-  tasks.forEach((task) => {
-    const element = document.createElement('li');
-    element.innerHTML = task.description;
-    tasksList.appendChild(element);
-  });
-};
-
-addNewTask();
+const tasks = new Tasks();
+tasks.displayTasks();
+addTaskSubmit();
+removeTaskClick();
