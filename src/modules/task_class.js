@@ -34,7 +34,9 @@ export default class Tasks {
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<a href="#">
+
+      taskItem.innerHTML = `<input type="checkbox" name="task_status" class="checkbox">
+      ${task.description}<a href="#">
       <img class="button_remove" data-id="${task.id}" src="${trash}" alt="">
       <img class="menu_button" src="${menu}" alt=""></a>`;
       tasksList.appendChild(taskItem);
@@ -69,6 +71,14 @@ export default class Tasks {
             this.editTask(id, newDescription);
             this.displayTasks();
           }
+        });
+        
+        checkbox.addEventListener('click', (event) => {
+          event.stopPropagation(); // Detiene la propagación del evento
+  
+          const { id } = task;
+          const completed = event.target.checked;
+          this.updateTaskStatus(id, completed);
         });
       });
     });
