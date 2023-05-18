@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import _ from 'lodash';
 import './style.css';
 import { Tasks } from './modules/task_class.js';
 import { addTaskSubmit, removeTaskClick } from './modules/add_remove_task.js';
+import './modules/checkbox_events.js'
 import sync from './assets/sync-outline.svg';
 import enter from './assets/enter.svg';
 
