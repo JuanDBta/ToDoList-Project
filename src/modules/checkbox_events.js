@@ -7,13 +7,10 @@ const statusMethods = {
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   },
+  clearCompletedTasks() {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks = tasks.filter((task) => !task.completed);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  },
 };
-
-const clearAllButton = document.getElementById('clear_all');
-
-clearAllButton.addEventListener('click', () => {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const updatedTasks = tasks.filter((task) => task.completed === false);
-  localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-});
 export default statusMethods;

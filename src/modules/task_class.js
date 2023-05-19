@@ -1,5 +1,4 @@
 import statusMethods from './checkbox_events.js';
-
 import trash from '../assets/trash-outline.svg';
 import menu from '../assets/ellipsis-vertical-outline.svg';
 

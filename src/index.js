@@ -1,7 +1,7 @@
 import './style.css';
 import { Tasks } from './modules/task_class.js';
 import { addTaskSubmit, removeTaskClick } from './modules/add_remove_task.js';
-import './modules/checkbox_events.js';
+import statusMethods from './modules/checkbox_events.js';
 import sync from './assets/sync-outline.svg';
 import enter from './assets/enter.svg';
 
@@ -23,3 +23,10 @@ const tasks = new Tasks();
 tasks.displayTasks();
 addTaskSubmit();
 removeTaskClick();
+
+const clearAllButton = document.getElementById('clear_all');
+clearAllButton.addEventListener('click', () => {
+  statusMethods.clearCompletedTasks();
+  tasks.clearCompletedTasks();
+  tasks.displayTasks();
+});
