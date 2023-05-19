@@ -26,7 +26,6 @@ removeTaskClick();
 
 const clearAllButton = document.getElementById('clear_all');
 clearAllButton.addEventListener('click', () => {
-  statusMethods.clearCompletedTasks();
   tasks.clearCompletedTasks();
   tasks.displayTasks();
 });

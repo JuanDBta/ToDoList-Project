@@ -17,7 +17,14 @@ export default class Tasks {
     const index = this.tasks.findIndex((task) => task.id === Number(id));
     if (index !== -1) {
       this.tasks.splice(index, 1);
+      this.updateTaskIds();
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  }
+
+  updateTaskIds() {
+    for (let i = 0; i < this.tasks.length; i += 1) {
+      this.tasks[i].id = i + 1;
     }
   }
 
@@ -30,7 +37,8 @@ export default class Tasks {
   }
 
   clearCompletedTasks() {
-    this.tasks = this.tasks.filter((task) => !task.completed);
+    this.tasks = this.tasks.filter((task) => task.completed === false);
+    this.updateTaskIds();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 

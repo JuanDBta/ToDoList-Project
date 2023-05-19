@@ -27,7 +27,7 @@ const removeTaskClick = () => {
   const taskList = document.getElementById('tasks_list');
   taskList.addEventListener('click', (event) => {
     if (event.target.classList.contains('button_remove')) {
-      const { id } = event.target.dataset;
+      const { id } = event.target.dataset.id;
       tasks.removeTask(id);
       tasks.displayTasks();
     }
