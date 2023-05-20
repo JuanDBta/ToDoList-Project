@@ -3,7 +3,10 @@ import menu from '../assets/ellipsis-vertical-outline.svg';
 
 export default class Tasks {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    if (!localStorage.getItem('tasks')) {
+      localStorage.setItem('tasks', JSON.stringify([]));
+    }
+    this.tasks = JSON.parse(localStorage.getItem('tasks'));
   }
 
   addTask(description) {
@@ -22,9 +25,10 @@ export default class Tasks {
   }
 
   updateTaskIds() {
-    this.tasks.forEach((task, index) => {
-      task.id = index + 1;
-    });
+    this.tasks = this.tasks.map((task, index) => ({
+      ...task,
+      id: index + 1,
+    }));
   }
 
   editTask(id, newDescription) {
@@ -44,7 +48,7 @@ export default class Tasks {
   }
 
   clearCompletedTasks() {
-    this.tasks = this.tasks.filter((task) => !task.completed);
+    this.tasks = this.tasks.filter((task) => task.completed === false);
     this.updateTaskIds();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }

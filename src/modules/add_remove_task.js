@@ -5,21 +5,25 @@ const tasks = new Tasks();
 function addTaskSubmit() {
   const enterTask = document.querySelector('.enter_task');
   const inputField = document.getElementById('description');
-  inputField.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      const description = inputField.value;
-      tasks.addTask(description);
-      tasks.displayTasks();
-      document.getElementById('add_new_task').reset();
-    }
-  });
-  enterTask.addEventListener('click', (event) => {
-    event.preventDefault();
-    const description = document.getElementById('description').value;
+
+  const addTask = () => {
+    tasks.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const description = inputField.value;
     tasks.addTask(description);
     tasks.displayTasks();
     document.getElementById('add_new_task').reset();
+  };
+
+  inputField.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addTask();
+    }
+  });
+
+  enterTask.addEventListener('click', (event) => {
+    event.preventDefault();
+    addTask();
   });
 }
 
