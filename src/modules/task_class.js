@@ -3,7 +3,10 @@ import menu from '../assets/ellipsis-vertical-outline.svg';
 
 export default class Tasks {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    if (!localStorage.getItem('tasks')) {
+      localStorage.setItem('tasks', JSON.stringify([]));
+    }
+    this.tasks = JSON.parse(localStorage.getItem('tasks'));
   }
 
   addTask(description) {
@@ -16,8 +19,16 @@ export default class Tasks {
     const index = this.tasks.findIndex((task) => task.id === Number(id));
     if (index !== -1) {
       this.tasks.splice(index, 1);
+      this.updateTaskIds();
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
+  }
+
+  updateTaskIds() {
+    this.tasks = this.tasks.map((task, index) => ({
+      ...task,
+      id: index + 1,
+    }));
   }
 
   editTask(id, newDescription) {
@@ -28,22 +39,67 @@ export default class Tasks {
     }
   }
 
+  updateTaskStatus(id, completed) {
+    const index = this.tasks.findIndex((task) => task.id === Number(id));
+    if (index !== -1) {
+      this.tasks[index].completed = completed;
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  }
+
+  clearCompletedTasks() {
+    this.tasks = this.tasks.filter((task) => task.completed === false);
+    this.updateTaskIds();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
   displayTasks() {
     const tasksList = document.getElementById('tasks_list');
     tasksList.innerHTML = '';
     this.tasks.forEach((task) => {
       const taskItem = document.createElement('li');
       taskItem.classList.add('task');
-      taskItem.innerHTML = `${task.description}<a href="#">
-      <img class="button_remove" data-id="${task.id}" src="${trash}" alt="">
-      <img class="menu_button" src="${menu}" alt=""></a>`;
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'task_status';
+      checkbox.classList.add('checkbox');
+      checkbox.id = `task_${task.id}`;
+      checkbox.checked = task.completed;
+      taskItem.appendChild(checkbox);
+
+      const label = document.createElement('label');
+      label.textContent = task.description;
+      label.setAttribute('for', checkbox.id);
+      taskItem.appendChild(label);
+
+      const removeButton = document.createElement('img');
+      removeButton.classList.add('button_remove');
+      removeButton.dataset.id = task.id;
+      removeButton.src = trash;
+      removeButton.alt = '';
+      taskItem.appendChild(removeButton);
+
+      const menuButton = document.createElement('img');
+      menuButton.classList.add('menu_button');
+      menuButton.src = menu;
+      menuButton.alt = '';
+      taskItem.appendChild(menuButton);
+
       tasksList.appendChild(taskItem);
 
-      const removeButton = taskItem.querySelector('.button_remove');
       removeButton.addEventListener('click', (event) => {
         const { id } = event.target.dataset;
         this.removeTask(id);
         this.displayTasks();
+      });
+
+      checkbox.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        const { id } = task;
+        const completed = event.target.checked;
+        this.updateTaskStatus(id, completed);
       });
 
       taskItem.addEventListener('click', (event) => {
@@ -52,7 +108,7 @@ export default class Tasks {
         const input = document.createElement('input');
         input.type = 'text';
         input.value = taskText.trim();
-        input.classList.add('edit_input'); // Agregamos la clase "edit_input"
+        input.classList.add('edit_input');
         taskItem.innerHTML = '';
         taskItem.appendChild(input);
         input.focus();
@@ -74,4 +130,5 @@ export default class Tasks {
     });
   }
 }
+
 export { Tasks };

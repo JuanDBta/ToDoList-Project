@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url("./galaxy.jpg");
+  background-image: url("./assets/galaxy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
