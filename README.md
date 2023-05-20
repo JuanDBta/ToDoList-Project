@@ -5,7 +5,7 @@
   <img src="src\assets/cardenasbackground.jpg" alt="logo" width="160"  height="auto">
   <br/>
 
-  <h3><b>Awsome Books Project</b></h3>
+  <h3><b>To Do List Project</b></h3>
 
 </div>
 
@@ -72,7 +72,7 @@ Coming soon!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Coming soon!
+<a href="https://juandbta.github.io/ToDoList-Project/dist/">To Do List</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
