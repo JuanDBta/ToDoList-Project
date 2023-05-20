@@ -1,4 +1,3 @@
-import statusMethods from './checkbox_events.js';
 import trash from '../assets/trash-outline.svg';
 import menu from '../assets/ellipsis-vertical-outline.svg';
 
@@ -23,9 +22,9 @@ export default class Tasks {
   }
 
   updateTaskIds() {
-    for (let i = 0; i < this.tasks.length; i += 1) {
-      this.tasks[i].id = i + 1;
-    }
+    this.tasks.forEach((task, index) => {
+      task.id = index + 1;
+    });
   }
 
   editTask(id, newDescription) {
@@ -36,8 +35,16 @@ export default class Tasks {
     }
   }
 
+  updateTaskStatus(id, completed) {
+    const index = this.tasks.findIndex((task) => task.id === Number(id));
+    if (index !== -1) {
+      this.tasks[index].completed = completed;
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  }
+
   clearCompletedTasks() {
-    this.tasks = this.tasks.filter((task) => task.completed === false);
+    this.tasks = this.tasks.filter((task) => !task.completed);
     this.updateTaskIds();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
@@ -91,12 +98,6 @@ export default class Tasks {
         this.updateTaskStatus(id, completed);
       });
 
-      checkbox.addEventListener('change', (event) => {
-        const { id } = task;
-        const completed = event.target.checked;
-        statusMethods.updateStatus(id, completed);
-      });
-
       taskItem.addEventListener('click', (event) => {
         const { id } = task;
         const taskText = event.target.textContent;
@@ -123,14 +124,6 @@ export default class Tasks {
         });
       });
     });
-  }
-
-  updateTaskStatus(id, completed) {
-    const index = this.tasks.findIndex((task) => task.id === Number(id));
-    if (index !== -1) {
-      this.tasks[index].completed = completed;
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
-    }
   }
 }
 
