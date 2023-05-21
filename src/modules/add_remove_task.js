@@ -27,6 +27,13 @@ function addTaskSubmit() {
   });
 }
 
+const clearCompletedTasks = () => {
+  tasks.tasks = tasks.tasks.filter((task) => !task.completed);
+  tasks.updateTaskIds();
+  localStorage.setItem('tasks', JSON.stringify(tasks.tasks));
+  tasks.displayTasks();
+};
+
 const removeTaskClick = () => {
   const taskList = document.getElementById('tasks_list');
   taskList.addEventListener('click', (event) => {
@@ -35,6 +42,11 @@ const removeTaskClick = () => {
       tasks.removeTask(id);
       tasks.displayTasks();
     }
+  });
+
+  const clearButton = document.getElementById('clear_button');
+  clearButton.addEventListener('click', () => {
+    clearCompletedTasks();
   });
 };
 

@@ -132,6 +132,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(167, 166, 166);
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  cursor: pointer;
 }
 
 #clear_all {

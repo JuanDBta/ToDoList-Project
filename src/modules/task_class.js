@@ -47,12 +47,6 @@ export default class Tasks {
     }
   }
 
-  clearCompletedTasks() {
-    this.tasks = this.tasks.filter((task) => task.completed === false);
-    this.updateTaskIds();
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
-  }
-
   displayTasks() {
     const tasksList = document.getElementById('tasks_list');
     tasksList.innerHTML = '';
@@ -103,6 +97,7 @@ export default class Tasks {
       });
 
       taskItem.addEventListener('click', (event) => {
+        event.stopPropagation();
         const { id } = task;
         const taskText = event.target.textContent;
         const input = document.createElement('input');
