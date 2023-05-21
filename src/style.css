@@ -85,6 +85,7 @@ body {
   transform: translateY(-50%);
   right: 1vw;
   width: 1.3vw;
+  cursor: pointer;
 }
 
 #add_new_task {
@@ -137,15 +138,6 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 400;
   cursor: pointer;
-}
-
-#clear_all {
-  display: block;
-  text-decoration: none;
-  color: rgb(167, 166, 166);
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 400;
 }
 
 .edit_input {
