@@ -22,9 +22,3 @@ const tasks = new Tasks();
 tasks.displayTasks();
 addTaskSubmit();
 removeTaskClick();
-
-const clearAllButton = document.getElementById('clear_all');
-clearAllButton.addEventListener('click', () => {
-  tasks.clearCompletedTasks();
-  tasks.displayTasks();
-});
