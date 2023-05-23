@@ -111,7 +111,7 @@ Open mobile.html using live server extension.
 
 - GitHub: [@JuanDBta](https://github.com/JuanDBta)
 - Twitter: [@diazgjuan](https://twitter.com/diazgjuan)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/juan-david-diaz-)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/juan-david-d%C3%ADaz-74bb14277/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
