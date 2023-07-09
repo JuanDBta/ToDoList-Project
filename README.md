@@ -72,7 +72,7 @@ Coming soon!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<a href="https://juandbta.github.io/ToDoList-Project/dist/">To Do List</a>
+<a href="https://to-do-list-iyoz.onrender.com/">To Do List</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
